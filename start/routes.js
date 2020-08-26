@@ -15,5 +15,7 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+Route.get('/', ()=>{return ({teste: "vindo do adonisJs"})})
 Route.post('/update-consumo', 'RecebeConsumoController.update')
 Route.get('/consumo-diario', 'EnviaConsumoController.diario')
+Route.delete('/deletar-consumo', 'EnviaConsumoController.destroy')

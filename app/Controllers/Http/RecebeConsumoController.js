@@ -6,7 +6,7 @@ class RecebeConsumoController {
 
     const { data } = request.all()
     const aux_data = data.map((value)=>{
-                        return ({consumo: value.y, data_criacao: new Date(value.x - 10800000)})
+                        return ({consumo: value.y, data_criacao: new Date(value.x * 1000)})
                       })
     // console.log(data)
     const consumo = await Consumo.createMany(aux_data)

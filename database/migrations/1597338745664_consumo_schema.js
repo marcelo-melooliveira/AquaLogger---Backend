@@ -8,7 +8,7 @@ class ConsumoSchema extends Schema {
     this.create('consumos', (table) => {
       table.increments()
       table.float('consumo', 2)
-      table.timestamp('data_criacao', { useTz: true });
+      table.timestamp('data_criacao', { useTz: false });
       table.timestamps()
     })
   }
