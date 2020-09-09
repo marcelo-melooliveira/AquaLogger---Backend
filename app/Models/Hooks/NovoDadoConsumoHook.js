@@ -8,9 +8,12 @@ NovoDadoConsumoHook.method = async (modelInstance) => {
 }
 
 NovoDadoConsumoHook.sendWs = async (dado) =>{
+  const date = new Date();
 const topic = Ws.getChannel('consumo').topic('consumo')
   if(topic){
-    const parsedDate = DateFNS.parseISO('2020-08-25')
+    // const parsedDate = DateFNS.parseISO('2020-09-07')
+    const parsedDate = date
+    
     const consumo = await Consumo.query()
                                  .whereBetween('data_criacao', [DateFNS.startOfDay(parsedDate), DateFNS.endOfDay(parsedDate)])
                                  .orderBy('data_criacao', 'asc')
