@@ -1,5 +1,8 @@
 'use strict'
 const Consumo = use('App/Models/Consumo')
+const Consumo_Semanal = use('App/Models/SemanalConsumo')
+const Consumo_Mensal = use('App/Models/MensalConsumo')
+const Consumo_Anual = use('App/Models/AnualConsumo')
 const DateFNS = require('date-fns');
 
 class EnviaConsumoController {
@@ -18,7 +21,7 @@ class EnviaConsumoController {
     const parsedDate = DateFNS.parseISO(date)
     // const consumo = DateFNS.getDay(parsedDate);
       
-    const consumo = await Consumo.query()
+    const consumo = await Consumo_Semanal.query()
                                   .whereBetween('data_criacao', [DateFNS.startOfWeek(parsedDate), DateFNS.endOfWeek(parsedDate)])
                                   .orderBy('data_criacao', 'asc')                      
                                   .fetch()
@@ -31,10 +34,21 @@ class EnviaConsumoController {
     const parsedDate = DateFNS.parseISO(date)
     // const consumo = DateFNS.getDay(parsedDate);
       
-    const consumo = await Consumo.query()
+    const consumo = await Consumo_Mensal.query()
                                   .whereBetween('data_criacao', [DateFNS.startOfMonth(parsedDate), DateFNS.endOfMonth(parsedDate)])
                                   .orderBy('data_criacao', 'asc')                      
                                   .fetch()
+
+    return consumo
+  }
+
+  async anual({request}){
+   // const { date } = request.all();
+   // const parsedDate = DateFNS.parseISO(date)
+    // const consumo = DateFNS.getDay(parsedDate);
+      
+    const consumo = await Consumo_Anual.query().orderBy('data_criacao', 'asc').fetch()
+                                      
 
     return consumo
   }
