@@ -9,7 +9,7 @@ class SemanalConsumoSchema extends Schema {
       table.increments()
       table.float('consumo', 2)
       table.integer('dia_semana')
-      table.timestamp('data_criacao', { useTz: false });
+      table.timestamp('data_criacao', { useTz: true });
       table.timestamps()
     })
   }
