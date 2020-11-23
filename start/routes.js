@@ -22,3 +22,7 @@ Route.get('/consumo-semanal', 'EnviaConsumoController.semanal')
 Route.get('/consumo-mensal', 'EnviaConsumoController.mensal')
 Route.get('/consumo-anual', 'EnviaConsumoController.anual')
 Route.delete('/deletar-consumo', 'EnviaConsumoController.destroy')
+
+Route.get('/download-diario', 'DownloadController.diario')
+Route.get('/download-mensal', 'DownloadController.mensal')
+Route.get('/download-anual', 'DownloadController.anual')

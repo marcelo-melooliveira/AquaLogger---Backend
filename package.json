@@ -29,6 +29,7 @@
     "adonis-mqtt": "^0.2.0",
     "adonis-scheduler": "^3.0.2",
     "date-fns": "^2.15.0",
+    "date-fns-timezone": "^0.1.4",
     "mqtt": "^4.1.0",
     "pg": "^8.3.0"
   },
