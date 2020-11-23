@@ -17,7 +17,7 @@ class DownloadDiarioController {
 
     const consumo = await Consumo.query()
                                   .whereBetween('data_criacao', [DateFNS.startOfDay(busca_inicial), DateFNS.endOfDay(busca_final)])
-                                  .select('consumo', 'data_criacao')
+                                  .select('id', 'consumo', 'data_criacao')
                                   .orderBy('data_criacao', 'asc')                        
                                   .fetch()
     return consumo
@@ -37,7 +37,7 @@ class DownloadDiarioController {
 
     const consumo = await Consumo_Mensal.query()
                                   .whereBetween('data_criacao', [DateFNS.startOfMonth(busca_inicial), DateFNS.endOfMonth(busca_final)])
-                                  .select('consumo', 'mes', 'data_criacao')
+                                  .select('id','consumo', 'mes', 'data_criacao')
                                   .orderBy('data_criacao', 'asc')                        
                                   .fetch()
     return consumo
@@ -57,7 +57,7 @@ class DownloadDiarioController {
 
     const consumo = await Consumo_Anual.query()
                                   .whereBetween('data_criacao', [DateFNS.startOfYear(busca_inicial), DateFNS.endOfYear(busca_final)])
-                                  .select('consumo', 'ano', 'data_criacao')
+                                  .select('id', 'consumo', 'ano', 'data_criacao')
                                   .orderBy('data_criacao', 'asc')                        
                                   .fetch()
     return consumo
