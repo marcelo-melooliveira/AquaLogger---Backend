@@ -35,7 +35,7 @@ class EnviaConsumoController {
     // const consumo = DateFNS.getDay(parsedDate);
       
     const consumo = await Consumo_Mensal.query()
-                                  .whereBetween('data_criacao', [DateFNS.startOfMonth(parsedDate), DateFNS.endOfMonth(parsedDate)])
+                                  .whereBetween('data_criacao', [DateFNS.startOfYear(parsedDate), DateFNS.endOfYear(parsedDate)])
                                   .orderBy('data_criacao', 'asc')                      
                                   .fetch()
 

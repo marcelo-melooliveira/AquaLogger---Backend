@@ -9,7 +9,7 @@ class AnualConsumoSchema extends Schema {
       table.increments()
       table.float('consumo', 2)
       table.integer('ano')
-      table.timestamp('data_criacao', { useTz: true });
+      table.timestamp('data_criacao', { useTz: false });
       table.timestamps()
     })
   }
